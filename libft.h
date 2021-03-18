@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:00:07 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/18 17:45:22 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/18 20:48:48 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 
 /*
+** get_next_line 
+*/
+
+int				get_next_line(int fd, char **line);
+
+/*
 **	Add-ons 
 */
 
@@ -94,7 +100,5 @@ int				ft_printf(const char *format, ...);
 char			*ft_lltoa(long long n);
 char			*ft_utoa_base(unsigned long long nbr, char *base);
 int				ft_wchar_to_mb(char *buffer, wchar_t code_point);
-
-int				get_next_line(int fd, char **line);
 
 #endif
