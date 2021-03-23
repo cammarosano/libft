@@ -6,7 +6,7 @@
 #    By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/18 16:39:22 by rcammaro          #+#    #+#              #
-#    Updated: 2021/03/18 17:48:09 by rcammaro         ###   ########.fr        #
+#    Updated: 2021/03/23 18:52:08 by rcammaro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ GNL_OBJS = $(GNL_SRCS:.c=.o)
 
 ADD_ONS_DIR = add_ons
 ADD_ONS_FILES =	ft_atof.c ft_atof_mv_ptr.c ft_atoi_mv_ptr.c \
-				ft_free_split.c ft_isspace.c ft_split_charset.c
+				ft_free_split.c ft_isspace.c ft_split_charset.c ft_strcmp.c
 ADD_ONS_SRCS = $(addprefix $(ADD_ONS_DIR)/,$(ADD_ONS_FILES))
 ADD_ONS_OBJS = $(ADD_ONS_SRCS:.c=.o)
 
