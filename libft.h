@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:00:07 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/23 18:54:39 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:03:07 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 
 /*
-** get_next_line 
+** get_next_line
 */
 
-int				get_next_line(int fd, char **line);
+int					get_next_line(int fd, char **line);
 
 /*
-**	Add-ons 
+**	Add-ons
 */
 
 int					ft_atoi_mv_ptr(char **ptr);
@@ -87,18 +87,19 @@ double				ft_atof_mv_ptr(char **ptr);
 void				*ft_free_split(char **array);
 int					ft_isspace(char c);
 char				**ft_split_charset(char *str, char *charset);
+int					ft_strcmp(const char *s1, const char *s2);
 
 /*
 ** ft_printf: formatted output conversion.
 ** ft_lltoa: integer to string (decimal base).
 ** ft_utoa_base: unsigned integer to string in any base.
-** ft_wchar_to_mb: wide char (Unicode code point) to multi-byte sequence 
+** ft_wchar_to_mb: wide char (Unicode code point) to multi-byte sequence
 **                 (UTF-8 encoding).
 */
 
-int				ft_printf(const char *format, ...);
-char			*ft_lltoa(long long n);
-char			*ft_utoa_base(unsigned long long nbr, char *base);
-int				ft_wchar_to_mb(char *buffer, wchar_t code_point);
+int					ft_printf(const char *format, ...);
+char				*ft_lltoa(long long n);
+char				*ft_utoa_base(unsigned long long nbr, char *base);
+int					ft_wchar_to_mb(char *buffer, wchar_t code_point);
 
 #endif

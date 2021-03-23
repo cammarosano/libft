@@ -6,13 +6,13 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:46:41 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/18 16:46:42 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:00:22 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "add_ons.h"
 
-static int	get_int_part(char **ptr)
+static int		get_int_part(char **ptr)
 {
 	int	nbr;
 
@@ -35,13 +35,13 @@ static double	get_frac_part(char **ptr)
 	while (**ptr >= '0' && **ptr <= '9')
 	{
 		nbr += (**ptr - '0') / dividend;
-		dividend *=  10;
+		dividend *= 10;
 		(*ptr)++;
 	}
 	return (nbr);
 }
 
-double	ft_atof_mv_ptr(char **ptr)
+double			ft_atof_mv_ptr(char **ptr)
 {
 	int		sign;
 	int		int_part;
@@ -62,4 +62,4 @@ double	ft_atof_mv_ptr(char **ptr)
 	(*ptr)++;
 	frac_part = get_frac_part(ptr);
 	return (sign * (int_part + frac_part));
-}	
+}

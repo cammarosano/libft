@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 00:41:35 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 16:33:15 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:04:02 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char			*float_to_str(double nbr, int precision, int flags)
 	int					sign_neg;
 
 	sign_neg = 0;
-	if ((*(int64_t *)&nbr >> 63) && (sign_neg = 1)) // nasty trick to check for negative sign that can handle -0.0
+	if ((*(int64_t *)&nbr >> 63) && (sign_neg = 1))
 		nbr *= -1;
 	if (precision < 0)
 		precision = 6;
