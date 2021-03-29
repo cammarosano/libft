@@ -6,16 +6,24 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:47:19 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/18 16:47:20 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/29 11:56:05 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "add_ons.h"
 
-int	ft_atoi_mv_ptr(char **ptr)
+static void	check_overflow(long *nbr)
 {
-	int	nbr;
-	int	sign;
+	if (*nbr > INT_MAX)
+		*nbr = INT_MAX;
+	else if (*nbr < INT_MIN)
+		*nbr = INT_MIN;
+}
+
+int			ft_atoi_mv_ptr(char **ptr)
+{
+	long	nbr;
+	int		sign;
 
 	while (ft_isspace(**ptr))
 		(*ptr)++;
@@ -30,6 +38,7 @@ int	ft_atoi_mv_ptr(char **ptr)
 	while (**ptr >= '0' && **ptr <= '9')
 	{
 		nbr = nbr * 10 + sign * (**ptr - '0');
+		check_overflow(&nbr);
 		(*ptr)++;
 	}
 	return (nbr);
