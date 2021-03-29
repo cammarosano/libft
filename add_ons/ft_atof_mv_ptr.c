@@ -6,17 +6,17 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:46:41 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/23 19:00:22 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/03/29 10:51:02 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "add_ons.h"
 
-static int		get_int_part(char **ptr)
+static double	get_int_part(char **ptr)
 {
-	int	nbr;
+	double	nbr;
 
-	nbr = 0;
+	nbr = 0.0;
 	while (**ptr >= '0' && **ptr <= '9')
 	{
 		nbr = nbr * 10 + **ptr - '0';
@@ -44,7 +44,7 @@ static double	get_frac_part(char **ptr)
 double			ft_atof_mv_ptr(char **ptr)
 {
 	int		sign;
-	int		int_part;
+	double	int_part;
 	double	frac_part;
 
 	while (ft_isspace(**ptr))
