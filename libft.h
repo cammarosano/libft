@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:00:07 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/23 19:03:07 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:58:31 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 int					ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);
@@ -71,15 +71,11 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 
-/*
-** get_next_line
-*/
+// get_next_line
 
 int					get_next_line(int fd, char **line);
 
-/*
-**	Add-ons
-*/
+// Add-ons
 
 int					ft_atoi_mv_ptr(char **ptr);
 double				ft_atof(char *ptr);
@@ -89,17 +85,17 @@ int					ft_isspace(char c);
 char				**ft_split_charset(char *str, char *charset);
 int					ft_strcmp(const char *s1, const char *s2);
 
-/*
-** ft_printf: formatted output conversion.
-** ft_lltoa: integer to string (decimal base).
-** ft_utoa_base: unsigned integer to string in any base.
-** ft_wchar_to_mb: wide char (Unicode code point) to multi-byte sequence
-**                 (UTF-8 encoding).
-*/
+// ft_printf
 
 int					ft_printf(const char *format, ...);
+
+// integer to string (decimal base).
 char				*ft_lltoa(long long n);
+
+// unsigned integer to string in any base.
 char				*ft_utoa_base(unsigned long long nbr, char *base);
+
+// wide char (Unicode code point) to multi-byte sequence (UTF-8 encoding).
 int					ft_wchar_to_mb(char *buffer, wchar_t code_point);
 
 #endif
