@@ -6,13 +6,13 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:20:00 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/12/07 21:51:59 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:34:39 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		free_set_null(char **ptr)
+int	free_set_null(char **ptr)
 {
 	free(*ptr);
 	*ptr = NULL;
@@ -38,7 +38,8 @@ char	*join(char *s1, char *s2)
 	char	*dest;
 	char	*src;
 
-	if (!(str = malloc(sizeof(char) * (line_len(s1) + line_len(s2) + 1))))
+	str = malloc(sizeof(char) * (line_len(s1) + line_len(s2) + 1));
+	if (!str)
 	{
 		free(s1);
 		free(s2);

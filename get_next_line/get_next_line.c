@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:19:01 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/12/07 21:50:40 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:31:08 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 
 int	load_buffer(int fd, char *buffer)
 {
-	ssize_t ret;
+	ssize_t	ret;
 
-	if ((ret = read(fd, buffer, BUFFER_SIZE)) == -1)
+	ret = read(fd, buffer, BUFFER_SIZE);
+	if (ret == -1)
 		return (0);
 	if (ret == 0)
 		buffer[0] = -1;
@@ -46,7 +47,8 @@ int	buffer_to_line(char *buffer, char **line)
 	char	stop;
 
 	len = line_len(buffer);
-	if (!(*line = malloc(sizeof(char) * (len + 1))))
+	*line = malloc(sizeof(char) * (len + 1));
+	if (!*line)
 		return (-1);
 	i = 0;
 	while (i < len)
@@ -70,8 +72,9 @@ int	get_next_line(int fd, char **line)
 	int			ret;
 	char		*temp;
 
-	if (!line || (*line = NULL) || BUFFER_SIZE < 1)
+	if (!line || BUFFER_SIZE < 1)
 		return (-1);
+	*line = NULL;
 	if (!*buffer && !load_buffer(fd, buffer))
 		return (-1);
 	ret = buffer_to_line(buffer, line);
@@ -80,9 +83,11 @@ int	get_next_line(int fd, char **line)
 		if (!load_buffer(fd, buffer))
 			return (free_set_null(line));
 		temp = *line;
-		if ((ret = buffer_to_line(buffer, line)) == -1)
+		ret = buffer_to_line(buffer, line);
+		if (ret == -1)
 			return (free_set_null(&temp));
-		if (!(*line = join(temp, *line)))
+		*line = join(temp, *line);
+		if (!*line)
 			return (-1);
 	}
 	return (ret);
