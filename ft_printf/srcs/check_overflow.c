@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 22:11:44 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:34:21 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	message_size(void)
 {
-	char *llu_limit;
+	char	*llu_limit;
 
 	llu_limit = ft_utoa_base(ULLONG_MAX, "0123456789");
 	if (!llu_limit)
@@ -33,7 +33,7 @@ given precision)\n", 2);
 	return (0);
 }
 
-int			check_ull_overflow(double nbr, int precision)
+int	check_ull_overflow(double nbr, int precision)
 {
 	if (nbr > ULLONG_MAX)
 		return (message_size());

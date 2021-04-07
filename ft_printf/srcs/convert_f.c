@@ -6,14 +6,13 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 00:41:35 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/23 19:04:02 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 14:58:51 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
-#include <stdint.h>
 
-static char		*append_minus(char *src)
+static char	*append_minus(char *src)
 {
 	char	*dst;
 
@@ -26,7 +25,7 @@ static char		*append_minus(char *src)
 ** left and right must be freeable strings.
 */
 
-static char		*join_decimal_sep(char *left, char *right)
+static char	*join_decimal_sep(char *left, char *right)
 {
 	char	*str;
 	char	*temp;
@@ -41,7 +40,7 @@ static char		*join_decimal_sep(char *left, char *right)
 	return (str);
 }
 
-static char		*append_decimal_sep(char *left, int flags)
+static char	*append_decimal_sep(char *left, int flags)
 {
 	char	*dst;
 	char	*dec_sep;
@@ -70,7 +69,7 @@ static double	pow_float(double nbr_fractional, int precision)
 ** ft_strjoin returning NULL if any of the source strings is NULL.
 */
 
-char			*float_to_str(double nbr, int precision, int flags)
+char	*float_to_str(double nbr, int precision, int flags)
 {
 	unsigned long long	integer;
 	unsigned long long	fractional;
@@ -78,9 +77,7 @@ char			*float_to_str(double nbr, int precision, int flags)
 	char				*right;
 	int					sign_neg;
 
-	sign_neg = 0;
-	if ((*(int64_t *)&nbr >> 63) && (sign_neg = 1))
-		nbr *= -1;
+	sign_neg = resolve_sign_neg(&nbr);
 	if (precision < 0)
 		precision = 6;
 	if (!check_ull_overflow(nbr, precision))
@@ -93,7 +90,8 @@ char			*float_to_str(double nbr, int precision, int flags)
 		left = append_minus(left);
 	if (precision == 0)
 		return (append_decimal_sep(left, flags));
-	if ((right = ft_utoa_base(fractional, "0123456789")))
+	right = ft_utoa_base(fractional, "0123456789");
+	if (right)
 		right = adjust_precision(right, precision);
 	return (join_decimal_sep(left, right));
 }

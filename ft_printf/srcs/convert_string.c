@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 06:48:47 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:15:45 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,20 @@ static char	*get_wstring(int precision, wchar_t *src)
 
 	if (!src)
 		src = L"(null)";
-	if (!(dst = ft_strdup("")))
+	dst = ft_strdup("");
+	if (!dst)
 		return (NULL);
 	byte_count = 0;
 	while (*src && (precision < 0 || byte_count < precision))
 	{
-		if (!(ret = ft_wchar_to_mb(buffer, *src++)))
+		ret = ft_wchar_to_mb(buffer, *src++);
+		if (!ret)
 			return (free_return_null(dst));
-		if (precision >= 0 && (byte_count += ret) > precision)
+		byte_count += ret;
+		if (precision >= 0 && byte_count > precision)
 			break ;
-		if (!(dst = append_mb_char(dst, buffer, ret)))
+		dst = append_mb_char(dst, buffer, ret);
+		if (!dst)
 			return (NULL);
 	}
 	return (dst);
@@ -80,7 +84,7 @@ static char	*get_wstring(int precision, wchar_t *src)
 ** Returns the number of BYTES (not characters) written or -1 if error.
 */
 
-int			convert_string(t_specs specs, va_list args)
+int	convert_string(t_specs specs, va_list args)
 {
 	char	*str;
 	int		ret;

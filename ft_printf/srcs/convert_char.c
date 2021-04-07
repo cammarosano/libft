@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 21:51:47 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:16:31 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	put_padded_char(char *buffer, int n_bytes, t_specs specs)
 ** The null-character is handled.
 */
 
-int			convert_char(t_specs specs, va_list args)
+int	convert_char(t_specs specs, va_list args)
 {
 	wchar_t			wc;
 	char			buffer[4];

@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 06:14:55 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/28 14:16:51 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 14:15:05 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	putstr_move(const char **str)
 	return (write(1, ptr, len));
 }
 
-int			ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		ret;
@@ -76,7 +76,8 @@ int			ft_printf(const char *format, ...)
 		counter += putstr_move(&format);
 		if (*format == '%')
 		{
-			if ((ret = convert(&format, args, counter)) == -1)
+			ret = convert(&format, args, counter);
+			if (ret == -1)
 				return (va_end_return(args));
 			counter += ret;
 		}

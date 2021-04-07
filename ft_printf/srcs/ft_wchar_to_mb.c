@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 18:05:11 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:27:00 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	wchar_to_mb_part_2(char *buffer, wchar_t code_point)
 	return (0);
 }
 
-int			ft_wchar_to_mb(char *buffer, wchar_t code_point)
+int	ft_wchar_to_mb(char *buffer, wchar_t code_point)
 {
 	if (code_point < 0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 01:10:06 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:27:19 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** character after it.
 */
 
-int		parse_decimal_str(const char **ptr)
+int	parse_decimal_str(const char **ptr)
 {
 	int	nbr;
 
@@ -30,7 +30,7 @@ int		parse_decimal_str(const char **ptr)
 	return (nbr);
 }
 
-int		is_in_charset(char c, char *charset)
+int	is_in_charset(char c, char *charset)
 {
 	while (*charset)
 		if (*charset++ == c)

@@ -6,11 +6,27 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 18:54:58 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:26:41 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
+#include <stdint.h>
+
+/*
+** Checks the first bit of the double nbr to check its sign.
+** If negative, inverts the sign of nbr and returns 1. Returns 0 otherwise. 
+*/
+
+int	resolve_sign_neg(double *nbr)
+{
+	if (*(int64_t *)nbr >> 63)
+	{
+		*nbr *= -1;
+		return (1);
+	}
+	return (0);
+}
 
 /*
 ** Checks if nbr is inf, -inf or nan.
@@ -57,7 +73,7 @@ static char	*get_str(t_specs specs, va_list args, int *inf_or_nan)
 ** Handles the floating-point conversions %f, %e and %g.
 */
 
-int			convert_float(t_specs specs, va_list args)
+int	convert_float(t_specs specs, va_list args)
 {
 	char	*str;
 	int		ret;

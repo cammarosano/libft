@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 02:05:14 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:33:33 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	define_prefix(char *src)
 ** Returns the null pointer in case of malloc error.
 */
 
-char		*adjust_precision(char *src, int precision)
+char	*adjust_precision(char *src, int precision)
 {
 	int		prefix;
 	int		n_digits;
@@ -42,7 +42,8 @@ char		*adjust_precision(char *src, int precision)
 	n_digits = ft_strlen(src) - prefix;
 	if (precision <= n_digits)
 		return (src);
-	if (!(dst = malloc(sizeof(char) * (precision + prefix + 1))))
+	dst = malloc(sizeof(char) * (precision + prefix + 1));
+	if (!dst)
 		return (free_return_null(src));
 	i = -1;
 	while (++i < prefix)
@@ -70,7 +71,7 @@ static void	fill_spaces(char *dst, unsigned int n)
 ** Returns the null pointer in case of malloc error.
 */
 
-char		*adjust_width_align(char *src, t_specs specs)
+char	*adjust_width_align(char *src, t_specs specs)
 {
 	int		size;
 	int		len;
@@ -79,9 +80,11 @@ char		*adjust_width_align(char *src, t_specs specs)
 	if (specs.width < 0)
 		return (free_return_null(src));
 	len = ft_strlen(src);
-	if ((size = specs.width) <= len)
+	size = specs.width;
+	if (size <= len)
 		return (src);
-	if (!(dst = malloc(sizeof(char) * (size + 1))))
+	dst = malloc(sizeof(char) * (size + 1));
+	if (!dst)
 		return (free_return_null(src));
 	if ((specs.flags & FLAG_MINUS))
 	{
@@ -107,7 +110,7 @@ char		*adjust_width_align(char *src, t_specs specs)
 ** Returns the null pointer in case of malloc error.
 */
 
-char		*adjust_0_width_numeric(char *src, int width)
+char	*adjust_0_width_numeric(char *src, int width)
 {
 	char	*dst;
 	int		prefix;
@@ -119,7 +122,8 @@ char		*adjust_0_width_numeric(char *src, int width)
 	len = ft_strlen(src);
 	if (width <= len)
 		return (src);
-	if (!(dst = malloc(sizeof(char) * (width + 1))))
+	dst = malloc(sizeof(char) * (width + 1));
+	if (!dst)
 		return (free_return_null(src));
 	prefix = define_prefix(src);
 	i = -1;

@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 06:57:58 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:36:21 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	get_size(unsigned long int n, unsigned int radix)
 ** checked and is assumed to be valid). Returned string is a freeable pointer.
 */
 
-char		*ft_utoa_base(unsigned long long nbr, char *base)
+char	*ft_utoa_base(unsigned long long nbr, char *base)
 {
 	char			*str;
 	int				size;
@@ -38,7 +38,8 @@ char		*ft_utoa_base(unsigned long long nbr, char *base)
 
 	radix = ft_strlen(base);
 	size = get_size(nbr, radix);
-	if (!(str = malloc(sizeof(*str) * (size + 1))))
+	str = malloc(sizeof(*str) * (size + 1));
+	if (!str)
 		return (NULL);
 	str[size--] = '\0';
 	while (nbr >= radix)

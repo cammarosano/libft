@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 07:05:01 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/28 14:17:29 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:17:59 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	convert_n(int length, va_list args, int counter)
 	if (length == 0)
 		*(int *)ptr = counter;
 	else if (length == len_hh)
-		*(signed char*)ptr = counter;
+		*(signed char *)ptr = counter;
 	else if (length == len_h)
 		*(short *)ptr = counter;
 	else if (length == len_l)

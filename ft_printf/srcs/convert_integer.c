@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 19:43:30 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:26:17 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** char or short.
 */
 
-static long long			get_arg_signed(int length, va_list args)
+static long long	get_arg_signed(int length, va_list args)
 {
 	if (length == 0)
 		return (va_arg(args, int));
@@ -31,7 +31,7 @@ static long long			get_arg_signed(int length, va_list args)
 	return (va_arg(args, long long));
 }
 
-static char					*signed_decimal_to_str(t_specs specs, va_list args)
+static char	*signed_decimal_to_str(t_specs specs, va_list args)
 {
 	long long	nbr;
 	char		*str;
@@ -65,7 +65,7 @@ static unsigned long long	get_arg_unsigned(int length, va_list args)
 	return (va_arg(args, unsigned long long));
 }
 
-static char					*unsigned_to_str(t_specs specs, va_list args)
+static char	*unsigned_to_str(t_specs specs, va_list args)
 {
 	unsigned long long	nbr;
 	char				*str;
@@ -93,7 +93,7 @@ static char					*unsigned_to_str(t_specs specs, va_list args)
 ** Returns the number of charactes written or -1 if error.
 */
 
-int							convert_integer(t_specs specs, va_list args)
+int	convert_integer(t_specs specs, va_list args)
 {
 	char			*str;
 	int				ret;

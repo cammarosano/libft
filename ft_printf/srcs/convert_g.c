@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 20:06:31 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:35:33 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	precision_to_signif_dig(int precision)
 	return (significant);
 }
 
-char		*float_to_str_signif(double nbr, int precision, int flags)
+char	*float_to_str_signif(double nbr, int precision, int flags)
 {
 	int		exp;
 	double	nbr_e;

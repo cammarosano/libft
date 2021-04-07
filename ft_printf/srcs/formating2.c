@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 18:31:57 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:35:16 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** padding 0s starting from the left side.
 */
 
-char		*adjust_0_width_text(char *src, int width)
+char	*adjust_0_width_text(char *src, int width)
 {
 	char	*dst;
 	int		len;
@@ -28,7 +28,8 @@ char		*adjust_0_width_text(char *src, int width)
 	len = ft_strlen(src);
 	if (width <= len)
 		return (src);
-	if (!(dst = malloc(sizeof(char) * (width + 1))))
+	dst = malloc(sizeof(char) * (width + 1));
+	if (!dst)
 		return (free_return_null(src));
 	i = 0;
 	while (i < width - len)
@@ -47,7 +48,7 @@ char		*adjust_0_width_text(char *src, int width)
 ** (or the NULL pointer if malloc error, see ft_strjoin).
 */
 
-char		*add_plus_sign_space(char *src, int flags)
+char	*add_plus_sign_space(char *src, int flags)
 {
 	char	*dst;
 
@@ -66,7 +67,7 @@ char		*add_plus_sign_space(char *src, int flags)
 ** in order to satisfy the "#" flag.
 */
 
-char		*insert_prefix(char *src, int conv_type, unsigned long long nbr)
+char	*insert_prefix(char *src, int conv_type, unsigned long long nbr)
 {
 	char	*dst;
 
@@ -90,7 +91,7 @@ char		*insert_prefix(char *src, int conv_type, unsigned long long nbr)
 ** Thus, "src" must point to writable memory.
 */
 
-void		trim_from_right(char *src, char target)
+void	trim_from_right(char *src, char target)
 {
 	size_t	len;
 

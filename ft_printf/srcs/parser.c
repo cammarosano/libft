@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 20:30:03 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 14:09:00 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,14 @@ static void	parse_type(const char **ptr, t_specs *specs)
 	type = **ptr;
 	i = -1;
 	while (conversions[++i])
+	{
 		if (conversions[i] == type)
 		{
 			specs->type = i;
 			(*ptr)++;
 			return ;
 		}
+	}
 	specs->type = -1;
 }
 
@@ -118,7 +120,7 @@ static void	parse_type(const char **ptr, t_specs *specs)
 ** specs.
 */
 
-void		parse_specs(const char **ptr, t_specs *specs, va_list args)
+void	parse_specs(const char **ptr, t_specs *specs, va_list args)
 {
 	(*ptr)++;
 	specs->flags = 0;

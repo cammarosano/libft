@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:24:23 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/28 14:17:40 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:45:18 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 # define FLAG_SPACE 8
 # define FLAG_HASH 16
 
-typedef struct		s_specs
+typedef struct s_specs
 {
-	int				flags;
-	int				width;
-	int				precision;
-	int				length;
-	int				type;
-}					t_specs;
+	int	flags;
+	int	width;
+	int	precision;
+	int	length;
+	int	type;
+}	t_specs;
 
 enum				e_conversion_type
 {
@@ -80,7 +80,7 @@ char				*adjust_0_width_text(char *src, int width);
 char				*add_plus_sign_space(char *src, int flags);
 void				trim_from_right(char *src, char target);
 char				*insert_prefix(char *src, int conv_type,
-									unsigned long long nbr);
+						unsigned long long nbr);
 
 void				*free_return_null(void *ptr);
 int					va_end_return(va_list args);
@@ -89,9 +89,11 @@ int					unsuported(char *message);
 char				*float_to_str(double nbr, int precision, int flags);
 char				*float_to_str_sci(double nbr, int precision, int flags);
 char				*float_to_str_signif(double nbr, int precision, int flags);
-unsigned long long	ten_power(unsigned int exponent);
 char				*get_expon_str(int n);
 int					test_rounding(double nbr, int precision);
 int					check_ull_overflow(double nbr, int precision);
+int					resolve_sign_neg(double *nbr);
+
+unsigned long long	ten_power(unsigned int exponent);
 
 #endif

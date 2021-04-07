@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:00:07 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/23 16:41:50 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:39:44 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 int					ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);

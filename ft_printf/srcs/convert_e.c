@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 20:06:31 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/01/27 14:23:56 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:05:08 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ unsigned long long	ten_power(unsigned int exponent)
 	return (res);
 }
 
-int					test_rounding(double nbr, int precision)
+int	test_rounding(double nbr, int precision)
 {
 	if (nbr < 0)
 		nbr *= -1;
@@ -34,12 +34,13 @@ int					test_rounding(double nbr, int precision)
 	return (0);
 }
 
-char				*get_expon_str(int n)
+char	*get_expon_str(int n)
 {
 	char	*str;
 	int		sign;
 
-	if (!(str = malloc(sizeof(*str) * 5)))
+	str = malloc(sizeof(*str) * 5);
+	if (!str)
 		return (NULL);
 	sign = 1;
 	if (n < 0)
@@ -56,7 +57,7 @@ char				*get_expon_str(int n)
 	return (str);
 }
 
-char				*float_to_str_sci(double nbr, int precision, int flags)
+char	*float_to_str_sci(double nbr, int precision, int flags)
 {
 	int		exp;
 	char	*float_str;
