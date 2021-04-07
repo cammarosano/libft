@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:46:41 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/29 10:51:02 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:46:22 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static double	get_frac_part(char **ptr)
 	return (nbr);
 }
 
-double			ft_atof_mv_ptr(char **ptr)
+double	ft_atof_mv_ptr(char **ptr)
 {
 	int		sign;
 	double	int_part;

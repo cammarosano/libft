@@ -6,13 +6,13 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:48:21 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/18 16:48:40 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:49:54 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "add_ons.h"
 
-static int		is_sep(char *charset, char c)
+static int	is_sep(char *charset, char c)
 {
 	while (*charset)
 	{
@@ -23,16 +23,16 @@ static int		is_sep(char *charset, char c)
 	return (0);
 }
 
-static char		*get_next_word(char *str, char *charset)
+static char	*get_next_word(char *str, char *charset)
 {
 	while (*str && is_sep(charset, *str))
 		str++;
 	return (str);
 }
 
-static int		count_words(char *str, char *charset)
+static int	count_words(char *str, char *charset)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	str = get_next_word(str, charset);
@@ -46,7 +46,7 @@ static int		count_words(char *str, char *charset)
 	return (counter);
 }
 
-static int		word_len(char *word, char *charset)
+static int	word_len(char *word, char *charset)
 {
 	int	len;
 
@@ -59,7 +59,7 @@ static int		word_len(char *word, char *charset)
 	return (len);
 }
 
-char			**ft_split_charset(char *str, char *charset)
+char	**ft_split_charset(char *str, char *charset)
 {
 	char	**array;
 	char	*ptr;
@@ -69,13 +69,15 @@ char			**ft_split_charset(char *str, char *charset)
 	if (!str || !charset)
 		return (NULL);
 	n_words = count_words(str, charset);
-	if (!(array = malloc(sizeof(*array) * (n_words + 1))))
+	array = malloc(sizeof(*array) * (n_words + 1));
+	if (!array)
 		return (NULL);
 	i = -1;
 	while (++i < n_words)
 	{
 		str = get_next_word(str, charset);
-		if (!(array[i] = malloc(sizeof(char) * (word_len(str, charset) + 1))))
+		array[i] = malloc(sizeof(char) * (word_len(str, charset) + 1));
+		if (!array[i])
 			return (ft_free_split(array));
 		ptr = array[i];
 		while (*str && !is_sep(charset, *str))

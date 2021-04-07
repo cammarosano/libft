@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:47:19 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/29 11:56:05 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:45:05 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	check_overflow(long *nbr)
 		*nbr = INT_MIN;
 }
 
-int			ft_atoi_mv_ptr(char **ptr)
+int	ft_atoi_mv_ptr(char **ptr)
 {
 	long	nbr;
 	int		sign;

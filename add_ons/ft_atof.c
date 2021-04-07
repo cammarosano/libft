@@ -6,13 +6,13 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:46:51 by rcammaro          #+#    #+#             */
-/*   Updated: 2021/03/29 10:51:22 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:53:12 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "add_ons.h"
 
-double			ft_atof(char *ptr)
+double	ft_atof(char *ptr)
 {
 	return (ft_atof_mv_ptr(&ptr));
 }
