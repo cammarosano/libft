@@ -6,7 +6,7 @@
 #    By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/18 16:39:22 by rcammaro          #+#    #+#              #
-#    Updated: 2021/03/23 18:52:08 by rcammaro         ###   ########.fr        #
+#    Updated: 2021/04/07 13:14:49 by rcammaro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,6 @@ clean:
 				rm -f $(GNL_OBJS) $(ADD_ONS_OBJS)
 
 fclean:			clean
-				$(MAKE)	fclean -C ft_printf
 				rm -f $(NAME)
 				
 re:				fclean all
