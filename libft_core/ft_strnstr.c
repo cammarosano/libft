@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:43:37 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/11/30 15:58:00 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 12:40:01 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	cmp_str(const char *haystack, const char *needle)
 	return (1);
 }
 
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	len_needle;
 

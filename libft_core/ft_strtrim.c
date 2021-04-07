@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcammaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 17:28:18 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/11/20 18:43:14 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:10:28 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_size(char const *s1, const char *set)
 	return (size);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		size;
 	char	*str;

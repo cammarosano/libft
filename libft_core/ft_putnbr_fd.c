@@ -6,7 +6,7 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:27:58 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/11/24 19:55:33 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:09:15 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	int	sign;
 
-	sign = (n < 0) ? -1 : 1;
+	sign = 1;
+	if (n < 0)
+		sign = -1;
 	if (n > -10 && n < 10)
 	{
 		if (sign == -1)

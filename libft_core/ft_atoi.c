@@ -6,16 +6,16 @@
 /*   By: rcammaro <rcammaro@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 00:05:24 by rcammaro          #+#    #+#             */
-/*   Updated: 2020/11/30 22:12:06 by rcammaro         ###   ########.fr       */
+/*   Updated: 2021/04/07 13:06:32 by rcammaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_isspace(char c)
+static int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' ||
-			c == ' ')
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
 		return (1);
 	else
 		return (0);
@@ -38,8 +38,8 @@ static long int	safe_add(long int nbr, char c, int sign)
 
 static long int	ft_strtol(const	char *nptr)
 {
-	int				sign;
-	long int		nbr;
+	int			sign;
+	long int	nbr;
 
 	while (ft_isspace(*nptr))
 		nptr++;
@@ -59,7 +59,7 @@ static long int	ft_strtol(const	char *nptr)
 	return (nbr);
 }
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	return (ft_strtol(str));
 }
